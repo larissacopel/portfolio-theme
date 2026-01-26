@@ -1,0 +1,52 @@
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/assets/main.css">
+  <script>
+  function switchLightDarkMode() {
+    if (document.getElementById("body").classList.contains('light')){
+      document.getElementById("body").classList.remove("light");
+      document.getElementById("body").classList.add("dark");
+      localStorage.setItem("LightDarkMode", 'dark');
+    } else {
+      document.getElementById("body").classList.remove("dark");
+      document.getElementById("body").classList.add("light");
+      localStorage.setItem("LightDarkMode", 'light');
+    }
+  }
+  function changeActive(elm) {
+    console.log("Clicked:", elm);
+    // Get all links in the sidebar
+    var links = document.getElementsByClassName("sidebar-item");
+    
+    // Loop through and reset their background color
+    for (var i = 0; i < links.length; i++) {
+      links[i].classList.remove("sidebar-item-active");
+    }
+
+    // Apply the new color to the clicked link
+    elm.classList.add("sidebar-item-active");
+    localStorage.setItem("activeLink", elm.innerText);
+  }
+  window.onload = function() {
+    var savedLinkText = localStorage.getItem("activeLink");
+    
+    if (savedLinkText) {
+      var links = document.getElementsByClassName("sidebar-item");
+      for (var i = 0; i < links.length; i++) {
+        if (links[i].innerText === savedLinkText) {
+          links[i].classList.add("sidebar-item-active");
+        }
+      }
+    }
+
+    var savedMode = localStorage.getItem("LightDarkMode");
+    if (savedMode) {
+      document.getElementById("body").classList.remove("light");
+      document.getElementById("body").classList.remove("dark");
+      document.getElementById("body").classList.add(savedMode);
+    }
+  };
+  </script>
+</head>

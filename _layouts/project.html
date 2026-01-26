@@ -1,0 +1,19 @@
+---
+layout: default
+---
+
+<a href='../../../projects/'><- Projects</a>
+{{ content }}
+
+<h2>Tech Stack</h2>
+
+{%- if page.tech -%}
+<div class="tech-stack">
+    {%- for tech in page.tech -%}
+    <div class="tech-stack-item">
+        {{ tech }}
+    </div>
+    {%- endfor -%}
+</div>
+{%- endif -%}
+

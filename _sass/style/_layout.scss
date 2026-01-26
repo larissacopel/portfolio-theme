@@ -1,0 +1,102 @@
+// disposition of the elements
+
+// -----------------------
+// General Layout
+// -----------------------
+.wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+}
+
+.content {
+    flex: 4 0 400px;
+}
+
+// -----------------------
+// Header
+// -----------------------
+
+.site-title {
+    justify-self: start;
+}
+
+.header {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+
+.site-nav {
+    justify-self: end;
+}
+
+// -----------------------
+// Sidebar and Content
+// -----------------------
+
+.sidebar {
+    flex: 0 0 200px;
+}
+
+.sidebar-content {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+// -----------------------
+// Projects
+// -----------------------
+
+.projects {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.project-post {
+    flex: 1 1 calc(33% - 16px);
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    padding: 16px;
+    border-radius: 8px;
+}
+
+.project-post:hover{
+  scale: 1.02;
+}
+
+.tech-stack {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+// -----------------------
+// Medias
+// -----------------------
+
+@media (max-width: 600px) {
+    .wrapper {
+        display: block
+    }
+}
+
+@media (min-width: 601px) and (max-width: 678px) {
+    .wrapper {
+        display: block
+    }
+}
+
+@media (min-width: 679px) and (max-width: 992px) {
+
+}
+
+@media (min-width: 993px) and (max-width: 1200px) {
+
+}
+
+@media (min-width: 1201px) {
+
+}

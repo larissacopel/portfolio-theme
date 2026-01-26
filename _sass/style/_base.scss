@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
+
+$padding-unit: 20px;
+$header-left-padding: 8px;
+$sidebar-item-border-radius: 5%;
+
+// -----------------------
+// general adjustments
+// -----------------------
+
+html, body, .wrapper {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: $base-font-family;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+// -----------------------
+// header
+// -----------------------
+
+.header {
+    padding: $padding-unit;
+    border-bottom: $border-style;
+}
+
+
+.site-title {
+    @include relative-font-size(1.5);
+    margin: 0;
+    font-weight: 500;
+    line-height: $base-line-height * $base-font-size * 1.2;
+    letter-spacing: -1px;
+    text-decoration: none;
+}
+
+
+// -----------------------
+// sidebar
+// -----------------------
+
+.sidebar {
+    //background-color: rgb(159, 206, 159);
+    padding: $padding-unit;
+    border-right: $border-style;
+}
+
+.sidebar-title {
+    margin: 0;
+    padding: $header-left-padding;
+    padding-top: 0;
+    font-weight: 400;
+}
+
+.sidebar-item {
+    border-radius: $sidebar-item-border-radius;
+    padding: 8px $header-left-padding;
+    margin-bottom: 2px;
+}
+
+.sidebar-item a {
+    text-decoration: none;
+}
+
+// -----------------------
+// content
+// -----------------------
+
+.page-title {
+    @include relative-font-size(1.825);
+    margin: 0;
+    font-weight: 600;
+    line-height: $base-line-height * $base-font-size * 1.2;
+    letter-spacing: -1px;
+    text-decoration: none;
+}
+
+.page-subtitle {
+    margin-top: 0;
+    color: gray;
+}
+
+.content {
+    padding: $padding-unit;
+}
+
+// -----------------------
+// projects
+// -----------------------
+
+.tech-stack-item {
+    border-radius: 5%;
+    border: $border-style;
+    padding: 4px 8px;
+    margin: 2px;
+}
+
+// -----------------------
+// footer
+// -----------------------
+
+.footer {
+    background-color: rgb(163, 163, 208);
+    border: $border-style;
+}
+
+

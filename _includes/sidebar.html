@@ -1,0 +1,14 @@
+<aside class="aside">
+  <h3 class="sidebar-title">Sections</h3>
+  <div class="sidebar-content">
+    <a class="sidebar-item" href="/" onclick="changeActive(this)">Home</a>
+    {%- for path in page_paths -%}
+      {%- assign my_page = site.pages | where: "path", path | first -%}
+      {%- if my_page.title -%}
+
+          <a class="sidebar-item" href="{{ my_page.url | relative_url }}" onclick="changeActive(this)">{{ my_page.title | escape }}</a>
+
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+</aside>

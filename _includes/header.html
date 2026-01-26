@@ -1,0 +1,13 @@
+{%- assign default_paths = site.pages | map: "path" -%}
+{%- assign page_paths = site.header_pages | default: default_paths -%}
+
+<div class="site-title">
+    <a rel="author" class="site-title" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
+</div>
+<div class="site-nav">
+    <nav>
+        <a href="#">GitHub</a>
+        <a href="#">LinkedIn</a>
+        <a href="#" onclick="switchLightDarkMode()">Light/Dark</a>
+    </nav>
+</div>
