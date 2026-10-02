@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Geist:wght@100..900&display=swap');
 
 $padding-unit: 20px;
 $header-left-padding: 8px;
@@ -8,7 +8,9 @@ $sidebar-item-border-radius: 5%;
 // general adjustments
 // -----------------------
 
-html, body, .wrapper {
+html,
+body,
+.wrapper {
     height: 100%;
 }
 
@@ -33,9 +35,10 @@ a {
 
 
 .site-title {
-    @include relative-font-size(1.5);
+    @include relative-font-size(1.8);
+    font-family: $title-font-family;
     margin: 0;
-    font-weight: 500;
+    font-weight: 200;
     line-height: $base-line-height * $base-font-size * 1.2;
     letter-spacing: -1px;
     text-decoration: none;
@@ -88,12 +91,30 @@ a {
 }
 
 .content {
+    @include relative-font-size(1.1);
+    font-weight: 300;
     padding: $padding-unit;
+    line-height: 1.65rem;
 }
 
 // -----------------------
 // projects
 // -----------------------
+
+.project-post-title {
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+.project-post-date {
+    font-size: 0.8em;
+    color: gray;
+}
+
+.project-post-learn-more {
+    font-size: 0.9em;
+    color: gray;
+}
 
 .tech-stack-item {
     border-radius: 5%;
@@ -110,5 +131,3 @@ a {
     background-color: rgb(163, 163, 208);
     border: $border-style;
 }
-
-

@@ -1,10 +1,11 @@
 @charset "utf-8";
 
 // define the variables here
+$title-font-family: "Bebas Neue", sans-serif;
 $base-font-family: "Geist", sans-serif;
 $border-style: #999999 1px dotted;
 $base-line-height: 1.5 !default;
-$base-font-size:   16px !default;
+$base-font-size: 16px !default;
 $base-font-weight: 400 !default;
 
 @mixin relative-font-size($ratio) {
