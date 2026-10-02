@@ -2,12 +2,19 @@
 {%- assign page_paths = site.header_pages | default: default_paths -%}
 
 <div class="site-title">
-    <a rel="author" class="site-title" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
+    <a rel="author" class="site-title" href="">{{ site.title | escape }}</a>
+    <a href="#" onclick="switchLightDarkMode()">S</a>
 </div>
 <div class="site-nav">
     <nav>
-        <a href="#">GitHub</a>
-        <a href="#">LinkedIn</a>
-        <a href="#" onclick="switchLightDarkMode()">Light/Dark</a>
+        {%- for path in page_paths -%}
+        {%- assign my_page = site.pages | where: "path", path | first -%}
+        {%- if my_page.title -%}
+
+        <a class="sidebar-item" href="{{ my_page.url | relative_url }}" onclick="changeActive(this)">{{ my_page.title |
+            escape }}</a>
+
+        {%- endif -%}
+        {%- endfor -%}
     </nav>
 </div>
