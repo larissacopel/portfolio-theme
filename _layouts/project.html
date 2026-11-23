@@ -4,16 +4,17 @@ layout: default
 
 <a href='../../../projects/'><- Projects</a>
 
-<h2>Tech Stack</h2>
+        <h2>Tech Stack</h2>
 
-{%- if page.tech -%}
-<div class="tech-stack">
-    {%- for tech in page.tech -%}
-    <div class="tech-stack-item">
-        {{ tech }}
-    </div>
-    {%- endfor -%}
-</div>
-{%- endif -%}
+        {%- if page.tech -%}
+        <div class="tech-stack">
+            {%- for tech in page.tech -%}
+            <div class="tech-stack-item">
+                {{ tech }}
+            </div>
+            {%- endfor -%}
+        </div>
+        {%- endif -%}
 
-{{ content }}
+        <h2>Description</h2>
+        {{ content }}

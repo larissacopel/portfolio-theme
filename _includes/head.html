@@ -2,55 +2,53 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Apply theme before loading CSS -->
+  <script>
+    (function () {
+      const savedMode = localStorage.getItem("LightDarkMode") || "dark";
+      document.documentElement.classList.add(savedMode);
+    })();
+  </script>
+
   <link rel="stylesheet" href="/assets/main.css">
+
   <script type="module">
     import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
     mermaid.initialize({ startOnLoad: true });
   </script>
+
   <script>
-  function switchLightDarkMode() {
-    if (document.getElementById("body").classList.contains('light')){
-      document.getElementById("body").classList.remove("light");
-      document.getElementById("body").classList.add("dark");
-      localStorage.setItem("LightDarkMode", 'dark');
-    } else {
-      document.getElementById("body").classList.remove("dark");
-      document.getElementById("body").classList.add("light");
-      localStorage.setItem("LightDarkMode", 'light');
-    }
-  }
-  function changeActive(elm) {
-    console.log("Clicked:", elm);
-    // Get all links in the sidebar
-    var links = document.getElementsByClassName("sidebar-item");
-    
-    // Loop through and reset their background color
-    for (var i = 0; i < links.length; i++) {
-      links[i].classList.remove("sidebar-item-active");
+    function switchLightDarkMode() {
+      const html = document.documentElement;
+      const newMode = html.classList.contains('light') ? 'dark' : 'light';
+
+      html.classList.remove('light', 'dark');
+      html.classList.add(newMode);
+
+      localStorage.setItem("LightDarkMode", newMode);
     }
 
-    // Apply the new color to the clicked link
-    elm.classList.add("sidebar-item-active");
-    localStorage.setItem("activeLink", elm.innerText);
-  }
-  window.onload = function() {
-    var savedLinkText = localStorage.getItem("activeLink");
-    
-    if (savedLinkText) {
-      var links = document.getElementsByClassName("sidebar-item");
-      for (var i = 0; i < links.length; i++) {
-        if (links[i].innerText === savedLinkText) {
-          links[i].classList.add("sidebar-item-active");
+    function changeActive() {
+      const currentPath = window.location.pathname.replace(/\/+$/, '') || '/';
+      const links = document.querySelectorAll('.sidebar-item');
+
+      links.forEach(link => {
+        const linkPath = new URL(link.href).pathname.replace(/\/+$/, '') || '/';
+
+        link.classList.remove('sidebar-item-active');
+
+        if (
+          currentPath === linkPath ||
+          (linkPath !== '/' && currentPath.startsWith(linkPath + '/'))
+        ) {
+          link.classList.add('sidebar-item-active');
         }
-      }
+      });
     }
 
-    var savedMode = localStorage.getItem("LightDarkMode");
-    if (savedMode) {
-      document.getElementById("body").classList.remove("light");
-      document.getElementById("body").classList.remove("dark");
-      document.getElementById("body").classList.add(savedMode);
-    }
-  };
+    window.onload = function () {
+      changeActive();
+    };
   </script>
 </head>

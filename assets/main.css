@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Geist:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Press+Start+2P&family=Redaction+50:ital,wght@0,400;0,700;1,400&display=swap");
 .wrapper {
   display: flex;
   flex-flow: row wrap;
@@ -101,12 +101,42 @@ a {
 
 .site-title {
   font-size: 28.8px;
-  font-family: "Bebas Neue", sans-serif;
+  font-family: "Redaction 50", serif;
   margin: 0;
-  font-weight: 200;
   line-height: 28.8px;
   letter-spacing: -1px;
   text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-self: start;
+  gap: 12px;
+}
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.theme-toggle:hover {
+  opacity: 0.7;
+  transform: rotate(15deg);
+}
+
+/* Dark mode: show sun */
+html.dark .icon-moon {
+  display: none;
+}
+
+/* Light mode: show moon */
+html.light .icon-sun {
+  display: none;
 }
 
 .sidebar {
@@ -196,7 +226,7 @@ a {
 
 .light {
   /* forces light color-scheme */
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 .dark {
