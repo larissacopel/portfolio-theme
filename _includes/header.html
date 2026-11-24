@@ -2,9 +2,7 @@
 {%- assign page_paths = site.header_pages | default: default_paths -%}
 
 <div class="site-title">
-    <a href="../" class="site-title">
-        {{ site.title | escape }}
-    </a>
+    <a href="{{ '/' | relative_url }}">{{ site.title | escape }}</a>
 
     <button class="theme-toggle" type="button" onclick="switchLightDarkMode()" aria-label="Toggle light/dark mode"
         title="Toggle light/dark mode">

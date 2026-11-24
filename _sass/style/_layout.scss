@@ -3,6 +3,18 @@
 // -----------------------
 // General Layout
 // -----------------------
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper {
+    flex: 1;
+    display: flex;
+}
+
 .wrapper {
     display: flex;
     flex-flow: row wrap;
@@ -20,12 +32,30 @@
 
 .content-centered {
     display: flex;
-    flex-grow: 100;
-    flex-flow: column nowrap;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100%;
-    overflow: auto;
+
+    width: 100%;
+    max-width: 800px;
+    min-height: 100%;
+
+    margin: auto;
+    text-align: center;
+}
+
+body:has(.content-centered) .wrapper {
+    display: flex;
+    align-items: stretch;
+}
+
+body:has(.content-centered) .content {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    min-width: 0;
 }
 
 // -----------------------
@@ -48,6 +78,26 @@
 }
 
 // -----------------------
+// light/dark mode button
+// -----------------------
+
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Dark mode: show sun */
+html.dark .icon-moon {
+    display: none;
+}
+
+/* Light mode: show moon */
+html.light .icon-sun {
+    display: none;
+}
+
+// -----------------------
 // Sidebar and Content
 // -----------------------
 
@@ -66,7 +116,7 @@
 
 .projects {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: column wrap;
     justify-content: space-between;
     gap: 16px;
 }
@@ -74,7 +124,6 @@
 .project-post {
     flex: 1 1 calc(33% - 16px);
     box-sizing: border-box;
-    border: 1px solid #ccc;
     padding: 26px;
     border-radius: 8px;
 }
@@ -96,16 +145,36 @@
     .wrapper {
         display: flex
     }
+
+    .content {
+        margin: 0;
+    }
 }
 
 @media (min-width: 601px) and (max-width: 678px) {
     .wrapper {
         display: flex
     }
+
+    .content {
+        margin: 0;
+    }
 }
 
-@media (min-width: 679px) and (max-width: 992px) {}
+@media (min-width: 679px) and (max-width: 992px) {
+    .content {
+        margin: 0 30%;
+    }
+}
 
-@media (min-width: 993px) and (max-width: 1200px) {}
+@media (min-width: 993px) and (max-width: 1200px) {
+    .content {
+        margin: 0 30%;
+    }
+}
 
-@media (min-width: 1201px) {}
+@media (min-width: 1201px) {
+    .content {
+        margin: 0 30%;
+    }
+}

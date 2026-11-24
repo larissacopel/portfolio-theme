@@ -8,9 +8,14 @@ $sidebar-item-border-radius: 5%;
 // general adjustments
 // -----------------------
 
+
 html,
-body,
-.wrapper {
+body {
+    min-height: 100%;
+}
+
+html,
+body {
     height: 100%;
 }
 
@@ -29,7 +34,6 @@ a {
 // -----------------------
 
 .header {
-    padding: $padding-unit;
     border-bottom: $border-style;
 }
 
@@ -45,6 +49,11 @@ a {
     align-items: center;
     justify-self: start;
     gap: 12px;
+    padding: $padding-unit;
+}
+
+.site-nav {
+    padding: $padding-unit;
 }
 
 // -----------------------
@@ -52,9 +61,6 @@ a {
 // -----------------------
 
 .theme-toggle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     padding: 4px;
     background: none;
     border: none;
@@ -66,16 +72,6 @@ a {
 .theme-toggle:hover {
     opacity: 0.7;
     transform: rotate(15deg);
-}
-
-/* Dark mode: show sun */
-html.dark .icon-moon {
-    display: none;
-}
-
-/* Light mode: show moon */
-html.light .icon-sun {
-    display: none;
 }
 
 // -----------------------
@@ -119,6 +115,7 @@ html.light .icon-sun {
 }
 
 .page-subtitle {
+    @include relative-font-size(1.5);
     margin-top: 0;
     color: gray;
 }
